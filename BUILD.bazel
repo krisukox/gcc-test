@@ -1,0 +1,23 @@
+cc_library(
+    name = "first",
+    srcs = ["first.cc"],
+    hdrs = ["first.h"],
+    linkstatic = True,
+)
+
+cc_library(
+    name = "second",
+    srcs = ["second.cc"],
+    hdrs = ["second.h"],
+    linkstatic = True,
+)
+
+cc_binary(
+    name = "exe",
+    srcs = ["main.cc"],
+    linkstatic = True,
+    deps = [
+        ":first",
+        ":second",
+    ],
+)
